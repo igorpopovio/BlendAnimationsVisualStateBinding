@@ -16,6 +16,45 @@
         <local:MainViewModel />
     </Window.DataContext>
     <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="CardinalArrow">
+                <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.5">
+                        <VisualTransition.GeneratedEasingFunction>
+                            <BackEase EasingMode="EaseInOut" />
+                        </VisualTransition.GeneratedEasingFunction>
+                    </VisualTransition>
+                </VisualStateGroup.Transitions>
+                <VisualState x:Name="North" />
+                <VisualState x:Name="East">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)"
+                                                       Storyboard.TargetName="blockArrow">
+                            <EasingDoubleKeyFrame KeyTime="0"
+                                                  Value="90" />
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="South">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)"
+                                                       Storyboard.TargetName="blockArrow">
+                            <EasingDoubleKeyFrame KeyTime="0"
+                                                  Value="180" />
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Weast">
+                    <Storyboard>
+                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)"
+                                                       Storyboard.TargetName="blockArrow">
+                            <EasingDoubleKeyFrame KeyTime="0"
+                                                  Value="270" />
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -44,7 +83,8 @@
                 Grid.Row="1"
                 Command="{Binding SwitchCommand}"
                 CommandParameter="{x:Static local:CardinalPoint.Weast}" />
-        <ed:BlockArrow Grid.Column="1"
+        <ed:BlockArrow x:Name="blockArrow"
+                       Grid.Column="1"
                        Fill="#FFF4F4F5"
                        HorizontalAlignment="Center"
                        Height="100"
@@ -52,6 +92,16 @@
                        Grid.Row="1"
                        Stroke="Black"
                        VerticalAlignment="Center"
-                       Width="50" />
+                       Width="50"
+                       RenderTransformOrigin="0.5,0.5">
+            <ed:BlockArrow.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform />
+                    <SkewTransform />
+                    <RotateTransform />
+                    <TranslateTransform />
+                </TransformGroup>
+            </ed:BlockArrow.RenderTransform>
+        </ed:BlockArrow>
     </Grid>
 </Window>
