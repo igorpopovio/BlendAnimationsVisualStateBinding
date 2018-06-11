@@ -4,6 +4,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlendAnimationsVisualStateBinding2"
         xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         x:Class="BlendAnimationsVisualStateBinding2.MainWindow"
         Title="Blend Animations"
         ResizeMode="NoResize"
@@ -102,6 +104,11 @@
                     <TranslateTransform />
                 </TransformGroup>
             </ed:BlockArrow.RenderTransform>
+            <i:Interaction.Triggers>
+                <ei:PropertyChangedTrigger Binding="{Binding CardinalPoint}">
+                    <ei:GoToStateAction StateName="{Binding CardinalPoint}" />
+                </ei:PropertyChangedTrigger>
+            </i:Interaction.Triggers>
         </ed:BlockArrow>
     </Grid>
 </Window>
