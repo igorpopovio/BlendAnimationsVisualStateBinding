@@ -46,7 +46,7 @@
                         </DoubleAnimationUsingKeyFrames>
                     </Storyboard>
                 </VisualState>
-                <VisualState x:Name="Weast">
+                <VisualState x:Name="West">
                     <Storyboard>
                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)"
                                                        Storyboard.TargetName="blockArrow">
@@ -84,7 +84,7 @@
         <Button Content="West"
                 Grid.Row="1"
                 Command="{Binding SwitchCommand}"
-                CommandParameter="{x:Static local:CardinalPoint.Weast}" />
+                CommandParameter="{x:Static local:CardinalPoint.West}" />
         <ed:BlockArrow x:Name="blockArrow"
                        Grid.Column="1"
                        Fill="#FFF4F4F5"
