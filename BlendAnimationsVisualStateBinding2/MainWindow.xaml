@@ -12,6 +12,9 @@
         Width="400"
         Height="400"
         mc:Ignorable="d">
+    <Window.DataContext>
+        <local:MainViewModel />
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -24,15 +27,23 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Button Content="North"
-                Grid.Column="1" />
+                Grid.Column="1"
+                Command="{Binding SwitchCommand}"
+                CommandParameter="{x:Static local:CardinalPoint.North}" />
         <Button Content="East"
                 Grid.Column="2"
-                Grid.Row="1" />
+                Grid.Row="1"
+                Command="{Binding SwitchCommand}"
+                CommandParameter="{x:Static local:CardinalPoint.East}" />
         <Button Content="South"
                 Grid.Column="1"
-                Grid.Row="2" />
+                Grid.Row="2"
+                Command="{Binding SwitchCommand}"
+                CommandParameter="{x:Static local:CardinalPoint.South}" />
         <Button Content="West"
-                Grid.Row="1" />
+                Grid.Row="1"
+                Command="{Binding SwitchCommand}"
+                CommandParameter="{x:Static local:CardinalPoint.Weast}" />
         <ed:BlockArrow Grid.Column="1"
                        Fill="#FFF4F4F5"
                        HorizontalAlignment="Center"
